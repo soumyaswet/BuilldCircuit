@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f6f4">
+  <title>BuildCircuit - find your people</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./auth.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main id="authScreen" class="auth-screen">
+    <section class="auth-story">
+      <a class="brand auth-brand" href="#"><span class="brand-symbol"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 8.5h7.5V16H7zM17.5 16h7.5v7.5h-7.5z" stroke="currentColor" stroke-width="2"/><path d="M14.5 12h3m-3 8h3M10.75 16v4m10-11v7m-6.25 3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span>BuildCircuit<span class="brand-period">.</span></span></a>
+      <div class="auth-story-copy"><div class="eyebrow">GOOD TEAMS ARE BUILT</div><h1>Find your people.<br>Build the thing.</h1><p>A focused space for developers who want to make something real, together.</p></div>
+      <div class="auth-story-foot"><span class="secure-dot"></span> Email and password. No external sign-in.</div>
+    </section>
+    <section class="auth-panel"><div class="auth-card"><div class="eyebrow">YOUR NEXT BUILD STARTS HERE</div><h2 id="authHeading">Welcome back.</h2><p id="authDescription">Sign in to find your next hackathon team.</p><div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login" type="button">Sign in</button><button class="auth-tab" data-auth-mode="register" type="button">Create account</button></div><form id="authForm" novalidate><div id="authNameField" class="auth-field hidden"><label for="authName">Your name</label><input id="authName" autocomplete="name" placeholder="How teammates know you"></div><div class="auth-field"><label for="authEmail">Email</label><input id="authEmail" type="email" autocomplete="username" placeholder="you@example.com" required></div><div class="auth-field"><label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required></div><div id="authConfirmField" class="auth-field hidden"><label for="authConfirm">Confirm password</label><input id="authConfirm" type="password" autocomplete="new-password" minlength="8" placeholder="Type it again"></div><div id="authMessage" class="auth-message" role="status"></div><button id="authSubmit" class="btn btn-primary auth-submit" type="submit">Sign in <span>→</span></button></form><p id="authFootnote" class="auth-footnote">No Google, GitHub, or third-party login. Your account is private to you.</p></div></section>
+  </main>
+  <div id="appFrame" class="app-frame hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#discover" aria-label="BuildCircuit home"><span class="brand-symbol"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 8.5h7.5V16H7zM17.5 16h7.5v7.5h-7.5z" stroke="currentColor" stroke-width="2"/><path d="M14.5 12h3m-3 8h3M10.75 16v4m10-11v7m-6.25 3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span>BuildCircuit<span class="brand-period">.</span></span></a>
+      <div class="side-kicker">YOUR WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="discover"><span class="nav-glyph">◈</span><span>Discover</span><span class="nav-count" id="discoverCount">08</span></button>
+        <button class="nav-item" data-view="teams"><span class="nav-glyph">▧</span><span>My teams</span><span class="nav-count" id="teamCount">0</span></button>
+        <button class="nav-item" data-view="profile"><span class="nav-glyph">⌘</span><span>My profile</span></button>
+      </nav>
+      <div class="side-kicker event-kicker">UP NEXT</div>
+      <button class="event-tile" id="eventPicker" type="button"><span class="event-tile-top"><span class="event-live"><i></i> OPEN FOR TEAMS</span><span class="event-arrow">↗</span></span><strong>Global Hack Week</strong><span class="event-date">Jun 12 - 19 · Remote</span><span class="event-progress"><i></i></span><span class="event-meta">Registration closes in 4 days</span></button>
+      <div class="side-bottom"><div class="presence"><span class="presence-dot"></span><span>Community active</span><span class="presence-count">1,284</span></div><button class="profile-mini" id="profileShortcut" type="button"><span class="avatar avatar-self">AR</span><span class="profile-mini-copy"><strong id="sideName">Alex Rivera</strong><small id="sideRole">Frontend engineer</small></span><span class="more">···</span></button></div>
+    </aside>
+    <main class="main-column">
+      <header class="topbar"><div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumbLabel">Discover</strong></div><div class="topbar-actions"><button class="icon-button" id="notificationsButton" type="button" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Zm-8 13h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><i class="notification-dot"></i></button><button class="top-profile" id="topProfile" type="button"><span class="avatar avatar-self">AR</span><span id="topName">Alex Rivera</span><span class="chevron">⌄</span></button></div></header>
+      <section id="viewRoot" class="view-root" aria-live="polite"></section>
+      <footer class="app-footer"><span>Built for people who build things.</span><span><i class="secure-dot"></i> Your profile stays yours</span></footer>
+    </main>
+  </div>
+  <div id="modalRoot"></div><div id="toastRoot" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
